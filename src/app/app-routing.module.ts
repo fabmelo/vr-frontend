@@ -1,7 +1,26 @@
+// angular
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+// components
+import { ListaComponent } from './modules/pokemon/lista/lista.component';
+import { DetalheComponent } from './modules/pokemon/detalhe/detalhe.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'lista',
+    pathMatch: 'full'
+  },
+  {
+    path: 'lista',
+    component: ListaComponent
+  },
+  {
+    path: 'detalhe/:param',
+    component: DetalheComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
