@@ -28,4 +28,10 @@ export class ApiService {
       .pipe(retry(2), catchError(error => this.utilService.handleError(error)));
   }
 
+  getDynamicPokemon(url: string): Observable<Array<any>> {
+    return this.httpClient
+      .get<Array<any>>(url)
+      .pipe(retry(2), catchError(error => this.utilService.handleError(error)));
+  }
+
 }

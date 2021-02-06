@@ -1,7 +1,15 @@
-<p>lista works!</p>
+<h1>LISTA</h1>
 
-<ul>
-  <li *ngFor="let item of pokemonList" >
+<div  infinite-scroll
+      [infiniteScrollDistance]="infiniteScrollDistance"
+      [infiniteScrollUpDistance]="infiniteScrollUpDistance"
+      [infiniteScrollThrottle]="infiniteScrollThrottle"
+      (scrolled)="onScrollDown()"
+      (scrolledUp)="onScrollUp()"
+      style="height: 100%;">
+
+  <div *ngFor="let item of pokemonList" style="height: 150px; background-color: bisque; margin: 20px;">
     {{ item.name }}
-  </li>
-</ul>
+  </div>
+
+</div>

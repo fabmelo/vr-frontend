@@ -14,6 +14,9 @@ import { DetalheComponent } from './modules/pokemon/detalhe/detalhe.component';
 // material
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+// others
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
