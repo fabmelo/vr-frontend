@@ -17,7 +17,7 @@ const routes: Routes = [
     component: ListaComponent
   },
   {
-    path: 'detalhe/:param',
+    path: 'detalhe/:name',
     component: DetalheComponent
   }
 ];
