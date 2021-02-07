@@ -1,19 +1,32 @@
-<h1>LISTA</h1>
+<div class="container">
+
+  <!-- formulário -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="Digite o nome do pokemon para buscar" />
+    </mat-form-field>
+  </form>
+  <!--/ formulário -->
+
+  <!-- infinite scroll / virtual scroll -->
+  <cdk-virtual-scroll-viewport  itemSize="50"
+                                infinite-scroll
+                                [infiniteScrollDistance]="infiniteScrollDistance"
+                                [infiniteScrollThrottle]="infiniteScrollThrottle"
+                                [scrollWindow]="false"
+                                (scrolled)="onScroll()"
+                                class="results">
 
 
-<cdk-virtual-scroll-viewport itemSize="50" infinite-scroll
-[infiniteScrollDistance]="infiniteScrollDistance"
-[infiniteScrollThrottle]="infiniteScrollThrottle"
-[scrollWindow]="false"
-(scrolled)="onScroll()"
-class="results">
 
 
+          <div *cdkVirtualFor="let item of pokemonList; let i = index" style="height: 50px; background-color: bisque; margin: 20px;">
+            <h1>{{ i }} - {{ item.name }}</h1>
+          </div>
 
 
-        <div *cdkVirtualFor="let item of pokemonList; let i = index" style="height: 50px; background-color: bisque; margin: 20px;">
-          <h1>{{ i }} - {{ item.name }}</h1>
-        </div>
+  </cdk-virtual-scroll-viewport>
+  <!--// infinite scroll / virtual scroll -->
 
-
-</cdk-virtual-scroll-viewport>
+</div>

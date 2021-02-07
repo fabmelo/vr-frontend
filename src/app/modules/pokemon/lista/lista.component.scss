@@ -1,4 +1,17 @@
+.container {
+  margin          : 20px;
+  background-color: yellow;
+}
+
 .results {
   height  : 100vh;
   overflow: scroll;
+}
+
+form {
+  width: 100%;
+
+  mat-form-field {
+    width: 100%;
+  }
 }
