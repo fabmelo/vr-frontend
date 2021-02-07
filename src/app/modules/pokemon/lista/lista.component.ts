@@ -40,7 +40,13 @@ export class ListaComponent implements OnInit {
     });
   }
 
-  onSubmit(){}
+  onSubmit(){
+    console.log("Submit");
+  }
+
+  onDetail(){
+    console.log("Detail");
+  }
 
   onGetListPokemon(){
     this.apiService.getInitialPokemon().subscribe(

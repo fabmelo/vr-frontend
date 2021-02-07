@@ -1,17 +1,50 @@
 .container {
-  margin          : 20px;
-  background-color: yellow;
-}
+  margin: 20px;
 
-.results {
-  height  : 100vh;
-  overflow: scroll;
-}
+  form {
+    width : 100%;
+    margin: 0;
 
-form {
-  width: 100%;
-
-  mat-form-field {
-    width: 100%;
+    mat-form-field {
+      width : 100%;
+      margin: 0 !important;
+    }
   }
+
+  .results {
+    height  : 100vh;
+    overflow: scroll;
+
+    table {
+      width : 100%;
+      margin: 0;
+
+      tr {
+        height: 50px;
+
+        &:hover {
+          background-color: #EAEAEA;
+        }
+
+        td.col-data {
+          border-bottom: 1px solid #CCCCCC;
+
+          p {
+            padding      : 12px 0 0 20px;
+            font-size     : 16px;
+            font-weight   : 600;
+            text-transform: capitalize;
+          }
+        }
+
+        td.col-preview {
+          width        : 60px;
+          text-align   : right;
+          padding      : 0 20px 0 0;
+          border-bottom: 1px solid #CCCCCC;
+        }
+      }
+    }
+  }
+
 }

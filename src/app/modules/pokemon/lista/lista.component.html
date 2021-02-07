@@ -10,23 +10,27 @@
   <!--/ formulário -->
 
   <!-- infinite scroll / virtual scroll -->
-  <cdk-virtual-scroll-viewport  itemSize="50"
-                                infinite-scroll
-                                [infiniteScrollDistance]="infiniteScrollDistance"
-                                [infiniteScrollThrottle]="infiniteScrollThrottle"
-                                [scrollWindow]="false"
-                                (scrolled)="onScroll()"
-                                class="results">
 
+    <cdk-virtual-scroll-viewport itemSize="50" infinite-scroll
+                                 [infiniteScrollDistance]="infiniteScrollDistance"
+                                 [infiniteScrollThrottle]="infiniteScrollThrottle"
+                                 [scrollWindow]="false" (scrolled)="onScroll()" class="results">
 
+      <table cellspan="0" colspan="0">
+        <tr *cdkVirtualFor="let item of pokemonList; let i = index">
+          <td class="col-data">
+            <p>{{ item.name }}</p>
+          </td>
+          <td class="col-preview">
+            <button mat-mini-fab (click)="onDetail()">
+              <mat-icon mat-icon>preview</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
 
+    </cdk-virtual-scroll-viewport>
 
-          <div *cdkVirtualFor="let item of pokemonList; let i = index" style="height: 50px; background-color: bisque; margin: 20px;">
-            <h1>{{ i }} - {{ item.name }}</h1>
-          </div>
-
-
-  </cdk-virtual-scroll-viewport>
   <!--// infinite scroll / virtual scroll -->
 
 </div>
