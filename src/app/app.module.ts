@@ -14,7 +14,9 @@ import { DetalheComponent } from './modules/pokemon/detalhe/detalhe.component';
 
 // material
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {ScrollingModule} from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 // others
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
@@ -32,6 +34,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     AppRoutingModule,
     MatSnackBarModule,
     ScrollingModule,
+    MatToolbarModule,
+    MatIconModule,
     InfiniteScrollModule
   ],
   providers: [],
