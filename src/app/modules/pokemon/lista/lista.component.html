@@ -1,10 +1,13 @@
 <div class="container">
 
+  <h1>Lista de Pokemons</h1>
+
   <!-- formulário -->
   <form [formGroup]="form" (ngSubmit)="onSearch()">
     <mat-form-field appearance="fill">
       <mat-icon matPrefix>search</mat-icon>
-      <input class="search" matInput placeholder="Digite o nome do Pokemon e pressione ENTER" />
+      <input formControlName="Search" class="search" matInput placeholder="Digite o nome do Pokemon e pressione ENTER" />
+      <span matSuffix class="error" *ngIf="f.Search.dirty && f.Search.hasError('minlength')" >Digite ao menos 4 caracteres</span>
     </mat-form-field>
   </form>
   <!--/ formulário -->
@@ -23,7 +26,7 @@
           </td>
           <td class="col-preview">
             <button mat-mini-fab (click)="onDetail(item.name)">
-              <mat-icon mat-icon>preview</mat-icon>
+              <mat-icon mat-icon>catching_pokemon</mat-icon>
             </button>
           </td>
         </tr>

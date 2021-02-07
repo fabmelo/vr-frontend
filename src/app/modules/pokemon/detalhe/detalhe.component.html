@@ -1,1 +1,11 @@
-<p>detalhe works!</p>
+<div class="container">
+
+  <h1>Detalhe do Pokemon</h1>
+
+  <p class="message-error" *ngIf="!pokemonName">Não foi passado um nome de Pokemon para busca</p>
+
+  <p class="message-error" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+  <p class="message-warning" *ngIf="!pokemonDetail">Não existe Pokemon com o nome <strong>{{ pokemonName | uppercase }}</strong> para exibir detalhes.</p>
+
+</div>

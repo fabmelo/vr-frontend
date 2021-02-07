@@ -1,0 +1,27 @@
+.container {
+  margin: 20px;
+
+  h1{
+    font-weight: 800;
+  }
+
+  .message-error {
+    background-color: rgb(236, 181, 181);
+    color           : rgb(165, 20, 20);
+    font-size       : 14px;
+    font-weight     : 600;
+    padding         : 20px;
+    border-radius   : 5px;
+    text-align      : center;
+  }
+
+  .message-warning {
+    background-color: rgb(247, 177, 108);
+    color           : #000000;
+    font-size       : 14px;
+    font-weight     : normal;
+    padding         : 20px;
+    border-radius   : 5px;
+    text-align      : center;
+  }
+}

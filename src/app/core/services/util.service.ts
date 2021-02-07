@@ -30,7 +30,7 @@ export class UtilService {
     let errorMessage = "";
 
     if (error.status === undefined || error.message === undefined)
-      return throwError('Erro ao resolver API');
+      return throwError(error);
 
     if (error.error instanceof ErrorEvent) {
       // Erro ocorreu no lado do client
@@ -49,9 +49,9 @@ export class UtilService {
    */
   async toastMessage(message: string) {
     this.snackBar.open(message, "OK", {
-      duration: 4000,
+      duration: 5000,
       horizontalPosition: "center",
-      verticalPosition: "bottom",
+      verticalPosition: "top",
     });
   }
 

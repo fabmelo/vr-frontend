@@ -1,6 +1,6 @@
 // angular
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // services
 import { UtilService } from './../../../core/services/util.service';
@@ -32,9 +32,13 @@ export class ListaComponent implements OnInit {
     this.onGetListPokemon();
   }
 
+  get f() {
+    return this.form.controls;
+  }
+
   createForm() {
     this.form = this.formBuilder.group({
-      Search: ['']
+      Search: ['', [Validators.minLength(4)]]
     });
   }
 

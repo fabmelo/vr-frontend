@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'detalhe/:name',
     component: DetalheComponent
+  },
+  {
+    path: 'detalhe',
+    component: DetalheComponent
   }
 ];
 

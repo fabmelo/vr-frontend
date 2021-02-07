@@ -1,5 +1,10 @@
 <mat-toolbar color="primary">
-  <mat-icon>catching_pokemon</mat-icon>
+  <mat-icon class="pokemon">catching_pokemon</mat-icon>
   <span>Teste Front-end - VR Benefícios</span>
+  <span class="spacer"></span>
+  <button mat-icon-button routerLink="/lista">
+    <mat-icon>list</mat-icon>
+  </button>
 </mat-toolbar>
+
 <router-outlet></router-outlet>

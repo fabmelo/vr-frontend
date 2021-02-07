@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 // service
 import { UtilService } from './../../../core/services/util.service';
 import { ApiService } from './../../../core/services/api.service';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-detalhe',
@@ -14,6 +16,8 @@ import { ApiService } from './../../../core/services/api.service';
 export class DetalheComponent implements OnInit {
 
   pokemonDetail: any;
+  pokemonName: string;
+  errorMsg: string;
 
   constructor(
     private apiService: ApiService,
@@ -23,23 +27,28 @@ export class DetalheComponent implements OnInit {
 
   ngAfterContentInit() {
     // recebe o id da rota
-    let name = this.activatedRoute.snapshot.paramMap.get('name');
+    this.pokemonName = this.activatedRoute.snapshot.paramMap.get('name');
     // busca os detalhes do abastecimento pelo id
-    this.onDetail(name);
+    this.onDetail();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  onDetail(name: string){
-    this.apiService.getPokemonByName(name).subscribe(
-      (res: any) => {
-        this.pokemonDetail = res;
-        console.log(res);
-      },
-      (error: any) => {
-        this.utilService.toastMessage('Erro ao obter detalhe do pokemon!');
-      }
-    );
+  onDetail() {
+    this.apiService.getPokemonByName(this.pokemonName).pipe(
+      catchError(error => {
+        this.errorMsg = error;
+        return of([]);
+      })
+    )
+      .subscribe(
+        (res: any) => {
+          this.pokemonDetail = res;
+        },
+        (error: any) => {
+          this.utilService.toastMessage('Erro ao obter detalhe do pokemon!');
+        }
+      );
   }
 
 }
