@@ -1,15 +1,19 @@
 <h1>LISTA</h1>
 
-<div  infinite-scroll
-      [infiniteScrollDistance]="infiniteScrollDistance"
-      [infiniteScrollUpDistance]="infiniteScrollUpDistance"
-      [infiniteScrollThrottle]="infiniteScrollThrottle"
-      (scrolled)="onScrollDown()"
-      (scrolledUp)="onScrollUp()"
-      style="height: 100%;">
 
-  <div *ngFor="let item of pokemonList" style="height: 150px; background-color: bisque; margin: 20px;">
-    {{ item.name }}
-  </div>
+<cdk-virtual-scroll-viewport itemSize="50" infinite-scroll
+[infiniteScrollDistance]="infiniteScrollDistance"
+[infiniteScrollThrottle]="infiniteScrollThrottle"
+[scrollWindow]="false"
+(scrolled)="onScroll()"
+class="results">
 
-</div>
+
+
+
+        <div *cdkVirtualFor="let item of pokemonList; let i = index" style="height: 50px; background-color: bisque; margin: 20px;">
+          <h1>{{ i }} - {{ item.name }}</h1>
+        </div>
+
+
+</cdk-virtual-scroll-viewport>

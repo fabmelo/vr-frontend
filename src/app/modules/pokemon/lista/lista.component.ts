@@ -14,9 +14,7 @@ export class ListaComponent implements OnInit {
 
   pokemonList: Array<any>;
   pokemonNext: string;
-  pokemonPrevious: string;
-  infiniteScrollDistance = 1;
-  infiniteScrollUpDistance = 2;
+  infiniteScrollDistance = 5;
   infiniteScrollThrottle = 300;
 
   constructor(
@@ -28,13 +26,11 @@ export class ListaComponent implements OnInit {
     this.onGetListPokemon();
   }
 
-  // initial
   onGetListPokemon(){
     this.apiService.getInitialPokemon().subscribe(
       (res: any) => {
         this.pokemonList = res.results;
         this.pokemonNext = res.next;
-        this.pokemonPrevious = res.previous;
       },
       (error: any) => {
         this.utilService.toastMessage('Erro ao obter a lista de pokemons!');
@@ -42,27 +38,11 @@ export class ListaComponent implements OnInit {
     );
   }
 
-  // next
-  onScrollDown(){
+  onScroll(){
     this.apiService.getDynamicPokemon(this.pokemonNext).subscribe(
       (res: any) => {
-        this.pokemonList = res.results;
+        this.pokemonList = this.pokemonList.concat(res.results);
         this.pokemonNext = res.next;
-        this.pokemonPrevious = res.previous;
-      },
-      (error: any) => {
-        this.utilService.toastMessage('Erro ao obter a lista de pokemons!');
-      }
-    );
-  }
-
-  // previous
-  onScrollUp(){
-    this.apiService.getDynamicPokemon(this.pokemonPrevious).subscribe(
-      (res: any) => {
-        this.pokemonList = res.results;
-        this.pokemonNext = res.next;
-        this.pokemonPrevious = res.previous;
       },
       (error: any) => {
         this.utilService.toastMessage('Erro ao obter a lista de pokemons!');

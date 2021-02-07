@@ -1,5 +1,6 @@
 // angular
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -13,6 +14,7 @@ import { DetalheComponent } from './modules/pokemon/detalhe/detalhe.component';
 
 // material
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 // others
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
@@ -24,10 +26,12 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     DetalheComponent
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     MatSnackBarModule,
+    ScrollingModule,
     InfiniteScrollModule
   ],
   providers: [],
