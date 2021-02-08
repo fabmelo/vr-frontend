@@ -6,6 +6,88 @@
 
   <p class="message-error" *ngIf="errorMsg">{{ errorMsg }}</p>
 
-  <p class="message-warning" *ngIf="!pokemonDetail">Não existe Pokemon com o nome <strong>{{ pokemonName | uppercase }}</strong> para exibir detalhes.</p>
+  <section *ngIf="pokemonName && !errorMsg" >
+
+    <!-- Nome -->
+    <h3>Nome</h3>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon matListIcon>catching_pokemon</mat-icon>
+        <p matLine>{{ pokemonName | uppercase }}</p>
+      </mat-list-item>
+    </mat-list>
+
+    <!-- Habilidades -->
+    <h3>Habilidades</h3>
+    <mat-list *ngIf="pokemonDetail">
+      <mat-list-item *ngFor="let item of pokemonDetail.abilities">
+        <mat-icon matListIcon>directions_run</mat-icon>
+        <p class="descricao" matLine><strong>Nome: </strong>{{ item.ability.name}}</p>
+        <p class="descricao" matLine *ngIf="item.ability.effects"><strong>Descrição: </strong>{{ item.ability.effects.effect}}</p>
+        <p class="descricao" matLine *ngIf="item.ability.effects"><strong>Resumo: </strong>{{ item.ability.effects.short_effect}}</p>
+      </mat-list-item>
+    </mat-list>
+
+    <!-- Formas -->
+    <h3>Formas</h3>
+    <section class="formas">
+
+      <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-3-tablet" *ngIf="pokemonDetail?.sprites.back_default">
+            <div class="content-img">
+              <img [src]="pokemonDetail.sprites.back_default">
+              <p>Costas<br>Padrão</p>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-3-tablet" *ngIf="pokemonDetail?.sprites.back_female">
+            <div class="content-img">
+              <img [src]="pokemonDetail.sprites.back_female">
+              <p>Costas<br>Fêmea</p>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-3-tablet" *ngIf="pokemonDetail?.sprites.back_shin">
+            <div class="content-img">
+              <img [src]="pokemonDetail.sprites.back_shiny">
+              <p>Costas<br>Shiny</p>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-3-tablet" *ngIf="pokemonDetail?.sprites.back_shiny_female">
+            <div class="content-img">
+              <img [src]="pokemonDetail.sprites.back_shiny_female">
+              <p>Costas<br>Shiny Fêmea</p>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-3-tablet" *ngIf="pokemonDetail?.sprites.front_default">
+            <div class="content-img">
+              <img [src]="pokemonDetail.sprites.front_default">
+              <p>Frente<br>Padrão</p>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-3-tablet" *ngIf="pokemonDetail?.sprites.front_female">
+            <div class="content-img">
+              <img [src]="pokemonDetail.sprites.front_female">
+              <p>Frente<br>Fêmea</p>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-3-tablet" *ngIf="pokemonDetail?.sprites.front_shiny">
+            <div class="content-img">
+              <img [src]="pokemonDetail.sprites.front_shiny">
+              <p>Frente<br>Shiny</p>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-3-tablet" *ngIf="pokemonDetail?.sprites.front_shiny_female">
+            <div class="content-img">
+              <img [src]="pokemonDetail.sprites.front_shiny_female">
+              <p>Frente<br>Shiny Fêmea</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </section>
 
 </div>
+

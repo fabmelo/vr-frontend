@@ -35,15 +35,37 @@ export class DetalheComponent implements OnInit {
   ngOnInit() { }
 
   onDetail() {
-    this.apiService.getPokemonByName(this.pokemonName).pipe(
-      catchError(error => {
-        this.errorMsg = error;
-        return of([]);
-      })
-    )
-      .subscribe(
+    this.apiService.getPokemonByName(this.pokemonName)
+      .pipe(
+        catchError(error => {
+          this.errorMsg = error;
+          return of([]);
+        })
+      ).subscribe(
         (res: any) => {
           this.pokemonDetail = res;
+
+          let array = [];
+
+          // busca mais detalhes das habilidades
+          res.abilities.forEach((element, index) => {
+
+            this.apiService.getDynamicPokemon(element.ability.url).subscribe(
+              (detail: any) => {
+
+                // faz o filtro somente para idioma inglês
+                const effects = detail.effect_entries.filter(effect => effect.language.name === "en");
+
+                // agrega o dado filtrado ao array principal
+                array = effects[0]
+                this.pokemonDetail['abilities'][index]['ability']['effects'] = array;
+              },
+              (error: any) => {
+                this.utilService.toastMessage('Erro ao obter mais detalhe do pokemon!');
+              }
+            );
+          });
+
         },
         (error: any) => {
           this.utilService.toastMessage('Erro ao obter detalhe do pokemon!');
