@@ -1,6 +1,6 @@
 {
   "name": "vr-frontend",
-  "version": "0.0.0",
+  "version": "1.0.2102.08001",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
