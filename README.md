@@ -1,27 +1,42 @@
-# VrFrontend
+# TESTE FRONT-END VR BENEFÍCIOS
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
+Aplicação Angular com consumo da API PokéAPI para atender os requisitos do teste para Front-End da VR Benefícios.
 
-## Development server
+## Tecnologias empregadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Lorem ipsum
 
-## Code scaffolding
+## Desafios encontrados
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Lorem ipsum
 
-## Build
+## Comandos
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Segue abaixo os principais comandos para interação com a aplicação.
 
-## Running unit tests
+1. Fazer o clone da aplicação do repositório do GitHub
+```
+git clone https://github.com/fabmelo/vr-frontend.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Entrar no diretório da aplicação após clonagem
+```
+cd vr-frontend
+```
 
-## Running end-to-end tests
+3. Instalar as dependências através do NPM
+```
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+4. Executar a aplicação
+```
+ng serve -o
+```
 
-## Further help
+5. Realizar o build da aplicação para produção
+```
+ng build --prod
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+6. Executar os testes
