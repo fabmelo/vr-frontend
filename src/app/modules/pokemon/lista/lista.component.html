@@ -3,54 +3,35 @@
   <h1>Lista de Pokemons</h1>
 
   <!-- formulário -->
-
-  <div class="mdc-layout-grid">
-    <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-12-tablet">
-
-        <form [formGroup]="form" (ngSubmit)="onSearch()">
-          <mat-form-field appearance="fill">
-            <mat-icon matPrefix>search</mat-icon>
-            <input formControlName="Search" class="search" matInput placeholder="Digite o nome do Pokemon e pressione ENTER" />
-            <span matSuffix class="error" *ngIf="f.Search.dirty && f.Search.hasError('minlength')" >Digite ao menos 4 caracteres</span>
-          </mat-form-field>
-        </form>
-
-      </div>
-    </div>
-  </div>
+  <form [formGroup]="form" (ngSubmit)="onSearch()">
+    <mat-form-field appearance="fill">
+      <mat-icon matPrefix>search</mat-icon>
+      <input formControlName="Search" class="search" matInput
+        placeholder="Digite o nome do Pokemon e pressione ENTER" />
+      <span matSuffix class="error" *ngIf="f.Search.dirty && f.Search.hasError('minlength')">Digite ao menos 4
+        caracteres</span>
+    </mat-form-field>
+  </form>
   <!--/ formulário -->
 
   <!-- infinite scroll / virtual scroll -->
+  <cdk-virtual-scroll-viewport itemSize="50" infinite-scroll [infiniteScrollDistance]="infiniteScrollDistance"
+    [infiniteScrollThrottle]="infiniteScrollThrottle" [scrollWindow]="false" (scrolled)="onScroll()" class="results">
 
-  <div class="mdc-layout-grid">
-    <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-12-tablet">
+    <table cellspan="0" colspan="0">
+      <tr *cdkVirtualFor="let item of pokemonList; let i = index" (click)="onDetail(item.name)">
+        <td class="col-preview">
+          <button mat-mini-fab (click)="onDetail(item.name)">
+            <mat-icon mat-icon>catching_pokemon</mat-icon>
+          </button>
+        </td>
+        <td class="col-data">
+          <p>{{ item.name }}</p>
+        </td>
+      </tr>
+    </table>
 
-        <cdk-virtual-scroll-viewport itemSize="50" infinite-scroll
-                                    [infiniteScrollDistance]="infiniteScrollDistance"
-                                    [infiniteScrollThrottle]="infiniteScrollThrottle"
-                                    [scrollWindow]="false" (scrolled)="onScroll()" class="results">
-
-          <table cellspan="0" colspan="0">
-            <tr *cdkVirtualFor="let item of pokemonList; let i = index" (click)="onDetail(item.name)">
-              <td class="col-data">
-                <p>{{ item.name }}</p>
-              </td>
-              <td class="col-preview">
-                <button mat-mini-fab (click)="onDetail(item.name)">
-                  <mat-icon mat-icon>catching_pokemon</mat-icon>
-                </button>
-              </td>
-            </tr>
-          </table>
-
-        </cdk-virtual-scroll-viewport>
-
-      </div>
-    </div>
-  </div>
-
+  </cdk-virtual-scroll-viewport>
   <!--// infinite scroll / virtual scroll -->
 
 </div>

@@ -30,8 +30,6 @@
 
     }
 
-
-
   }
 
   .results {
@@ -47,6 +45,7 @@
 
         &:hover {
           background-color: #EAEAEA;
+          cursor: pointer;
         }
 
         td.col-data {
