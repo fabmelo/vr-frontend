@@ -19,12 +19,12 @@ Segue abaixo os principais comandos para interação com a aplicação.
 git clone https://github.com/fabmelo/vr-frontend.git
 ```
 
-2. Entrar no diretório da aplicação após clonagem
+2. Entrar no diretório da aplicação após clonagem.
 ```
 cd vr-frontend
 ```
 
-3. Instalar as dependências através do NPM
+3. Instalar as dependências através do NPM.
 ```
 npm install
 ```
@@ -34,7 +34,7 @@ npm install
 ng serve -o
 ```
 
-5. Realizar o build da aplicação para produção
+5. Realizar o build da aplicação para produção.
 ```
 ng build --prod
 ```
