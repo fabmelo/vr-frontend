@@ -2,13 +2,18 @@
 
 Aplicação Angular com consumo da API PokéAPI para atender os requisitos do teste para Front-End da VR Benefícios.
 
+## Os requisitos
+
+Foi definido que a apalicação deveria ter uma lista com os Pokemons e que esta lista levasse ao uma página de detalhes do Pokemon selecionado. Como são muitos Pokemons, ao invés de fazer uma simples paginação, foi definido implementar um infinite scroll e a virtualização para apenas redenrizar os dados em tela.
+
 ## Tecnologias empregadas
 
-Lorem ipsum
+A aplicação foi desenvolvida com Angular na sua versão 10, foi utilizado para o layout o Angular Material, para cuidar o infinite scroll foi usada a library ngx-infinite-scroll e para cuidar da virtualização dos dados do scroll foi utilizado o próprio Angular Material.
 
 ## Desafios encontrados
 
-Lorem ipsum
+1. Por não ser um bom conhecedor de Pokemons não sabia o que seriam dados importantes e relevantes a se mostrar nos detalhes. 
+2. O deploy na plataforma do Heroku nunca havia feito, mas depois de ler a documentação foi concretizada com sucesso. 
 
 ## Comandos
 
@@ -39,4 +44,10 @@ ng serve -o
 ng build --prod
 ```
 
-6. Executar os testes
+## O repositório
+
+A aplicação foi commitada do repositório https://github.com/fabmelo/vr-frontend do GitHub.
+
+## O deploy
+
+O deploy da aplicação foi feito no Heroku e a url para acesso é https://vrfrontendapp.herokuapp.com/.
